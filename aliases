@@ -1,0 +1,44 @@
+# unix
+alias mkdir='mkdir -p'
+alias ls="ls -Gp"
+
+# git
+alias g="git"
+alias ga="git add"
+alias gcm="git commit -m"
+alias gco="git co"
+alias gd="git diff"
+alias gcl="git co @{-1}"
+alias gl="git log"
+alias gm="git mm"
+alias gnb="git co -b"
+alias gp="git push"
+alias gsf="git show --name-only"
+alias gshow="git show"
+alias gst="git status"
+alias gun="git unstage"
+alias gup="git up"
+
+# postgres
+alias db-restore='pg_restore --verbose --clean --no-acl --no-owner -d'
+
+# heroku
+alias h=heroku
+alias db-copy-staging-to-local='h pgbackups:capture -r staging && curl `h pgbackups:url -r staging` | db-restore `db-development-name`'
+
+# bundler
+alias b="bundle"
+
+# rubygems
+alias gi="gem install"
+alias giv="gem install -v"
+
+# rails
+alias migrate="rake db:migrate && rake db:rollback && rake db:migrate && rake db:test:prepare"
+
+# heroku staging
+alias staging='heroku open staging'
+alias staging-console='heroku run console --remote staging'
+alias staging-process='watch heroku ps --remote staging'
+alias staging-releases='heroku releases --remote staging'
+alias staging-tail='heroku logs --tail --remote staging'

@@ -13,7 +13,7 @@ set ruler
 set showcmd 
 set laststatus=2
 " show a bar at column 79
-set textwidth=79
+"set textwidth=79
 "if exists ("+colorcolumn")
 "    set colorcolumn=+1
 "endif
@@ -29,11 +29,7 @@ syntax enable
 set background=light
 set showmatch
 autocmd BufRead,BufNewFile Gemfile set filetype=Gemfile
-
-" Markdown files
-" end in .md
-au BufRead,BufNewFile *.md set filetype=markdown
-
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 " tabs
 set expandtab
 set smarttab
@@ -44,40 +40,40 @@ set softtabstop=2
 set autoindent
 set cindent
 
-" Search stuff
+" Search behavior
 set incsearch
 set hlsearch
 
-" Matching brackets and things
+" Keyboard behaviors
+set backspace=indent,eol,start
+" matching brackets
 highlight MatchParen ctermbg=74
 inoremap (<cr> (<cr>)<Esc>O
 inoremap [<cr> [<cr>]<Esc>O
 inoremap {<cr> {<cr>}<Esc>O
-
-" Remapping some key behaviors
-set backspace=indent,eol,start
-" insert new line (above or below) current w/o going into insert mode
+" insert new line current w/o going into insert mode
 map <CR> o<Esc>
-map <S-CR> O<Esc>
+map <Leader><CR> O<Esc>
 " tab completion
 set complete=.,b,u,]
 set wildmode=longest,list:longest
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 " other stuff
 command! W w        "because I ALWAYS do :W by accident
 command! Q q        "because I ALWAYS do :Q by accident
 nmap k gk
 nmap j gj
-
+" allow jumping between do/end, etc. using %
 runtime macros/matchit.vim
+
+" align cucumber tables as you type
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+" rspec mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+
+
 :" let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
@@ -95,8 +91,15 @@ Bundle 'rake.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 
-" Align cucumber tables as you type
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+" Functions
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
 
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
@@ -108,11 +111,6 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
-
-" rspec mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
 
 function! RunCurrentSpecFile()
   if InSpecFile()
