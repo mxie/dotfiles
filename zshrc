@@ -1,5 +1,6 @@
 autoload -U compinit && compinit
 autoload -Uz colors && colors
+autoload -U select-word-style && select-word-style bash
 
 # use vim as an editor
 export EDITOR=vim

@@ -5,6 +5,7 @@ alias ls="ls -Gp"
 # git
 alias g="git"
 alias ga="git add"
+alias gb="git branch"
 alias gcm="git commit -m"
 alias gco="git co"
 alias gd="git diff"
