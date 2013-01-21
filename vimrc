@@ -46,6 +46,8 @@ set hlsearch
 
 " Keyboard behaviors
 set backspace=indent,eol,start
+set splitbelow
+set splitright
 " matching brackets
 highlight MatchParen ctermbg=74
 inoremap (<cr> (<cr>)<Esc>O
