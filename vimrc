@@ -67,6 +67,8 @@ nmap k gk
 nmap j gj
 " allow jumping between do/end, etc. using %
 runtime macros/matchit.vim
+" command line abbreviations
+cabbr <expr> %% expand('%:p:h')
 
 " align cucumber tables as you type
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
