@@ -6,7 +6,7 @@
   diff = auto
   status = auto
 [core]
-  editor = /usr/local/bin/vim
+  editor = `which vim`
 [alias]
   co = checkout
   st = status
