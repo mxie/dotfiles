@@ -10,6 +10,7 @@
 [alias]
   co = checkout
   st = status
+  undo = reset --soft HEAD^
   unstage = reset HEAD
   up = !git fetch origin && git rebase origin/master
   # Merge current branch into master, only if it's a fast-forward. Doesn't check
