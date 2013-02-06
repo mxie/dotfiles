@@ -38,4 +38,3 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 HISTSIZE=4096
 SAVEHIST=4096
 HISTFILE=~/.history
-
