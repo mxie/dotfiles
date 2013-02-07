@@ -116,9 +116,10 @@ function! s:align()
   endif
 endfunction
 
+" run rspecs
 function! RunCurrentSpecFile()
   if InSpecFile()
-    let l:command = "s " . @% . " -f documentation"
+    let l:command = "bundle exec rspec " . @% . " -f documentation"
     call SetLastSpecCommand(l:command)
     call RunSpecs(l:command)
   endif
@@ -126,7 +127,7 @@ endfunction
 
 function! RunNearestSpec()
   if InSpecFile()
-    let l:command = "s " . @% . " -l " . line(".") . " -f documentation"
+    let l:command = "bundle exec rspec " . @% . " -l " . line(".") . " -f documentation"
     call SetLastSpecCommand(l:command)
     call RunSpecs(l:command)
   endif
