@@ -5,13 +5,11 @@
   branch = auto
   diff = auto
   status = auto
-[core]
-  editor = `which vim`
 [alias]
   amend = commit --amend
   co = checkout
   st = status
-  undo = reset --soft HEAD^
+  undo = reset HEAD^
   unstage = reset HEAD
   up = !git fetch origin && git rebase origin/master
   # Merge current branch into master, only if it's a fast-forward. Doesn't check

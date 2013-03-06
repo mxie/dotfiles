@@ -3,6 +3,8 @@ let mapleader = " "
 
 " use vim defaults not vi
 set nocompatible
+set noswapfile
+set vb
 
 " Character encoding
 set encoding=utf-8
@@ -21,15 +23,25 @@ set laststatus=2
 " Purdy things
 " Vundle setup
 filetype off
+filetype plugin indent on
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-filetype plugin indent on
+" gui things
+if has('gui_running')
+  set background=dark
+  set guioptions-=T
+  set guioptions+=c
+  colorscheme solarized
+else
+  set background=light
+endif
+let g:solarized_termcolors=256
 " syntax
 syntax enable
-set background=light
 set showmatch
 autocmd BufRead,BufNewFile Gemfile set filetype=Gemfile
 autocmd BufRead,BufNewFile *.md set filetype=markdown
+autocmd BufRead,BufNewFile .tmux.conf*,tmux.conf* setf tmux
 " tabs
 set expandtab
 set smarttab
@@ -65,6 +77,10 @@ command! W w        "because I ALWAYS do :W by accident
 command! Q q        "because I ALWAYS do :Q by accident
 nmap k gk
 nmap j gj
+" preserve indentation while pasting text from the OS X clipboard
+noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+" toggle comment
+noremap <leader>c :TComment<CR>
 " allow jumping between do/end, etc. using %
 runtime macros/matchit.vim
 " command line abbreviations
@@ -72,11 +88,28 @@ cabbr <expr> %% expand('%:p:h')
 
 " align cucumber tables as you type
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
 " rspec mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
-
+"
+" vimux mappings
+let g:VimuxHeight = "20"
+" Run the current file with rspec
+map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+" Prompt for a command to run
+map <Leader>rp :VimuxPromptCommand<CR>
+" Run last command executed by VimuxRunCommand
+map <Leader>rl :VimuxRunLastCommand<CR>
+" Inspect runner pane
+map <Leader>ri :VimuxInspectRunner<CR>
+" Close all other tmux panes in current window
+map <Leader>rx :VimuxClosePanes<CR>
+" Close vim tmux runner opened by VimuxRunCommand
+map <Leader>rq :VimuxCloseRunner<CR>
+" Interrupt any command running in the runner pane
+map <Leader>rs :VimuxInterruptRunner<CR>
 
 :" let Vundle manage Vundle
 Bundle 'gmarik/vundle'
@@ -94,6 +127,7 @@ Bundle 'endwise.vim'
 Bundle 'rake.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'benmills/vimux'
 
 " Functions
 function! InsertTabWrapper()

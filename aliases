@@ -1,28 +1,30 @@
 # unix
 alias mkdir='mkdir -p'
 alias ls="ls -Gp"
+alias vim='mvim -v'
 
 # git
 alias g="git"
 alias ga="git add"
 alias gam="git amend"
 alias gb="git branch"
+alias gcl="git checkout @{-1}"
 alias gcm="git commit"
-alias gco="git co"
+alias gco="git checkout"
 alias gd="git diff"
+alias gdb="git branch --merged | grep -v master | xargs git branch -d"
 alias gg="git grep"
-alias gcl="git co @{-1}"
 alias gl="git log"
 alias gm="git merge"
 alias gmm="git mm"
-alias gnb="git co -b"
+alias gnb="git checkout -b"
 alias gp="git push"
+alias gpop="git stash pop"
 alias gr="git rebase"
 alias gsf="git show --name-only"
 alias gshow="git show"
 alias gst="git status"
 alias gstash="git stash"
-alias gpop="git stash pop"
 alias gun="git unstage"
 alias gup="git up"
 
@@ -42,6 +44,7 @@ alias giv="gem install -v"
 
 # rails
 alias migrate="rake db:migrate && rake db:rollback && rake db:migrate && rake db:test:prepare"
+alias rrg="rake routes | grep"
 
 # heroku staging
 alias staging='heroku open staging'

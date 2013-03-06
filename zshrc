@@ -2,8 +2,16 @@ autoload -U compinit && compinit
 autoload -Uz colors && colors
 autoload -U select-word-style && select-word-style bash
 
+# `cd` without `cd`
+setopt AUTO_CD
+
 # use vim as an editor
-export EDITOR=vim
+export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'
+# vi style incremental search
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then
