@@ -41,7 +41,7 @@ syntax enable
 set showmatch
 autocmd BufRead,BufNewFile Gemfile set filetype=Gemfile
 autocmd BufRead,BufNewFile *.md set filetype=markdown
-autocmd BufRead,BufNewFile .tmux.conf*,tmux.conf* setf tmux
+autocmd BufRead,BufNewFile .tmux.conf*,tmux.conf* set filetype=tmux
 " tabs
 set expandtab
 set smarttab
@@ -81,6 +81,8 @@ nmap j gj
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 " toggle comment
 noremap <leader>c :TComment<CR>
+" turnoff highlight
+noremap <leader>h :noh<CR>
 " allow jumping between do/end, etc. using %
 runtime macros/matchit.vim
 " command line abbreviations
@@ -89,13 +91,9 @@ cabbr <expr> %% expand('%:p:h')
 " align cucumber tables as you type
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
-" rspec mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-"
 " vimux mappings
-let g:VimuxHeight = "20"
+let g:VimuxHeight = "30"
+let g:VimuxOrientation = "h"
 " Run the current file with rspec
 map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
 " Prompt for a command to run
@@ -111,10 +109,26 @@ map <Leader>rq :VimuxCloseRunner<CR>
 " Interrupt any command running in the runner pane
 map <Leader>rs :VimuxInterruptRunner<CR>
 
+" turbux mappings
+let g:turbux_command_rspec  = 'clear; rspec'
+let g:no_turbux_mappings = 1
+map <leader>a <Plug>SendTestToTmux
+map <leader>l <Plug>SendFocusedTestToTmux
+
 :" let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
 Bundle 'ack.vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'benmills/vimux'
+Bundle 'christoomey/magictags'
+Bundle 'danro/rename.vim'
+Bundle 'endwise.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'jgdavey/vim-turbux'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/ctrlp.vim'
+Bundle 'rake.vim'
 Bundle 'tComment'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-fugitive'
@@ -122,12 +136,6 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'godlygeek/tabular'
-Bundle 'endwise.vim'
-Bundle 'rake.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'benmills/vimux'
 
 " Functions
 function! InsertTabWrapper()
@@ -148,39 +156,4 @@ function! s:align()
     normal! 0
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
-endfunction
-
-" run rspecs
-function! RunCurrentSpecFile()
-  if InSpecFile()
-    let l:command = "bundle exec rspec " . @% . " -f documentation"
-    call SetLastSpecCommand(l:command)
-    call RunSpecs(l:command)
-  endif
-endfunction
-
-function! RunNearestSpec()
-  if InSpecFile()
-    let l:command = "bundle exec rspec " . @% . " -l " . line(".") . " -f documentation"
-    call SetLastSpecCommand(l:command)
-    call RunSpecs(l:command)
-  endif
-endfunction
-
-function! RunLastSpec()
-  if exists("t:last_spec_command")
-    call RunSpecs(t:last_spec_command)
-  endif
-endfunction
-
-function! InSpecFile()
-  return match(expand("%"), "_spec.rb$") != -1
-endfunction
-
-function! SetLastSpecCommand(command)
-  let t:last_spec_command = a:command
-endfunction
-
-function! RunSpecs(command)
-  execute ":w\|!clear && echo " . a:command . " && echo && " . a:command
 endfunction
