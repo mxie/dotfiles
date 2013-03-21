@@ -15,10 +15,11 @@ set ruler
 set showcmd 
 set laststatus=2
 " show a bar at column 79
-"set textwidth=79
-"if exists ("+colorcolumn")
-"    set colorcolumn=+1
-"endif
+set textwidth=79
+if exists ("+colorcolumn")
+   set colorcolumn=+1
+   highlight ColorColumn ctermbg=234
+endif
 
 " Purdy things
 " Vundle setup
@@ -111,6 +112,7 @@ map <Leader>rs :VimuxInterruptRunner<CR>
 
 " turbux mappings
 let g:turbux_command_rspec  = 'clear; rspec'
+let g:turbux_command_cucumber = 'clear; cucumber'
 let g:no_turbux_mappings = 1
 map <leader>a <Plug>SendTestToTmux
 map <leader>l <Plug>SendFocusedTestToTmux
@@ -129,6 +131,7 @@ Bundle 'jgdavey/vim-turbux'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'rake.vim'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'tComment'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-fugitive'
