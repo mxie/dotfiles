@@ -6,7 +6,7 @@ autoload -U select-word-style && select-word-style bash
 setopt AUTO_CD
 
 # use vim as an editor
-export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'
+export EDITOR='vim'
 # vi style incremental search
 bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
