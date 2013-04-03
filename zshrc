@@ -41,8 +41,6 @@ function parse_git_branch() {
 # prompt
 export PS1='$(parse_git_branch)[${SSH_CONNECTION+"%{$fg_no_bold[green]%}%n@%m:"}%{$fg_no_bold[blue]%}%~%{$reset_color%} %{$fg_no_bold[cyan]%}$(parse_git_uncommitted)$(parse_git_unstaged)%{$reset_color%}] %{$fg_no_bold[magenta]%}$%{$reset_color%} '
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 HISTSIZE=4096
 SAVEHIST=4096
 HISTFILE=~/.history
