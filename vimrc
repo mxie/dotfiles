@@ -80,6 +80,10 @@ command! W w        "because I ALWAYS do :W by accident
 command! Q q        "because I ALWAYS do :Q by accident
 nmap k gk
 nmap j gj
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 " preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 " toggle comment
