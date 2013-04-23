@@ -12,7 +12,7 @@ set encoding=utf-8
 " Line/character number things
 set number
 set ruler
-set showcmd 
+set showcmd
 set laststatus=2
 " show a bar at column 79
 set textwidth=79
@@ -43,6 +43,7 @@ set showmatch
 autocmd BufRead,BufNewFile Gemfile set filetype=Gemfile
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile .tmux.conf*,tmux.conf* set filetype=tmux
+autocmd BufWritePre * :%s/\s\+$//e
 " tabs
 set expandtab
 set smarttab
