@@ -4,12 +4,13 @@ alias ls="ls -Gp"
 alias vim='mvim -v'
 
 # git
+alias gcg="git config --get"
 alias g="git"
 alias ga="git add"
 alias gam="git amend"
 alias gb="git branch"
 alias gcl="git checkout @{-1}"
-alias gcm="git commit"
+alias gcm="git commit -m"
 alias gco="git checkout"
 alias gd="git diff"
 alias gdb="git branch --merged | grep -v master | xargs git branch -d"
