@@ -117,8 +117,8 @@ map <Leader>rq :VimuxCloseRunner<CR>
 map <Leader>rs :VimuxInterruptRunner<CR>
 
 " turbux mappings
-let g:turbux_command_rspec  = 'clear; rspec'
-let g:turbux_command_cucumber = 'clear; cucumber'
+let g:turbux_command_rspec  = 'clear; bundle exec rspec --color'
+let g:turbux_command_cucumber = 'clear; bundle exec cucumber'
 let g:no_turbux_mappings = 1
 map <leader>a <Plug>SendTestToTmux
 map <leader>l <Plug>SendFocusedTestToTmux
