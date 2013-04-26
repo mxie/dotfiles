@@ -126,7 +126,7 @@ map <leader>l <Plug>SendFocusedTestToTmux
 :" let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
-Bundle 'ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'benmills/vimux'
 Bundle 'christoomey/magictags'
