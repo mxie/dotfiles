@@ -99,7 +99,7 @@ cabbr <expr> %% expand('%:p:h')
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 " vimux mappings
-let g:VimuxHeight = "30"
+let g:VimuxHeight = "25"
 let g:VimuxOrientation = "h"
 " Run the current file with rspec
 map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
