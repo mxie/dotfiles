@@ -10,7 +10,7 @@ set vb
 set encoding=utf-8
 
 " Line/character number things
-set number
+set relativenumber
 set ruler
 set showcmd
 set laststatus=2
