@@ -44,3 +44,5 @@ export PS1='$(parse_git_branch)[${SSH_CONNECTION+"%{$fg_no_bold[green]%}%n@%m:"}
 HISTSIZE=4096
 SAVEHIST=4096
 HISTFILE=~/.history
+
+export PATH=$PATH:$HOME/bin
