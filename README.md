@@ -1,4 +1,22 @@
 dotfiles
 ========
 
-    for file in `ls dotfiles/* | grep -v README | sed 's/dotfiles\///'`; do ln -fs dotfiles/$file .$file; done;
+Requirements
+------------
+zsh
+git
+vim
+
+Installation
+------------
+
+Do the following to set up your dotfiles:
+
+    cd dotfiles
+    ./install.sh
+
+
+Also, set up your environment variables:
+
+    export $PERSONAL_EMAIL="personal@example.com"
+    export $WORK_EMAIL="work@example.com"
