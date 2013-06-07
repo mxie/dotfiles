@@ -4,7 +4,9 @@ alias ls="ls -Gp"
 alias vim='mvim -v'
 
 # git
-alias gcg="git config --get"
+alias gwork="git config --local user.email $WORK_EMAIL"
+alias gpers="git config --local user.email $PERSONAL_EMAIL"
+alias gc="git config --get"
 alias g="git"
 alias ga="git add"
 alias gam="git amend"
