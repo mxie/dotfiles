@@ -3,9 +3,9 @@ dotfiles
 
 Requirements
 ------------
-zsh
-git
-vim
+* zsh
+* git
+* vim
 
 Installation
 ------------
@@ -16,7 +16,7 @@ Do the following to set up your dotfiles:
     ./install.sh
 
 
-Also, set up your environment variables:
+Also, set up your environment variables in your `.zshenv` file:
 
-    export $PERSONAL_EMAIL="personal@example.com"
-    export $WORK_EMAIL="work@example.com"
+    export PERSONAL_EMAIL="personal@example.com"
+    export WORK_EMAIL="work@example.com"
