@@ -68,9 +68,12 @@ highlight MatchParen ctermbg=74
 inoremap (<cr> (<cr>)<Esc>O
 inoremap [<cr> [<cr>]<Esc>O
 inoremap {<cr> {<cr>}<Esc>O
-" insert new line current w/o going into insert mode
-map <CR> o<Esc>
-map <Leader><CR> O<Esc>
+"break this line into a new one below
+map <CR> i<CR><Esc>
+"add newline above current line
+map <Esc><CR> O<Esc>
+"add newline below current line
+map <Leader><CR> o<Esc>
 " tab completion
 set complete=.,b,u,]
 set wildmode=longest,list:longest
@@ -94,6 +97,8 @@ noremap <leader>h :noh<CR>
 runtime macros/matchit.vim
 " command line abbreviations
 cabbr <expr> %% expand('%:p:h')
+" format file and return to where I was before
+nnoremap <Leader>= mmgg=G`mzz
 
 " align cucumber tables as you type
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
