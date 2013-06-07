@@ -11,7 +11,7 @@
   st = status
   undo = reset HEAD^
   unstage = reset HEAD
-  up = !git fetch origin && git rebase origin/master
+  up = !git fetch origin && git checkout master && git merge origin/master && git checkout - && git rebase origin/master
   # Merge current branch into master, only if it's a fast-forward. Doesn't check
   # out master if it's not a FF merge.
   mm = !test `git rev-parse master` = $(git merge-base HEAD master) && git checkout master && git merge HEAD@{1} || echo "Non-fastforward"
