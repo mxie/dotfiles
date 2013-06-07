@@ -16,4 +16,6 @@
   # out master if it's not a FF merge.
   mm = !test `git rev-parse master` = $(git merge-base HEAD master) && git checkout master && git merge HEAD@{1} || echo "Non-fastforward"
 [user]
-	name = Melissa Xie
+  name = Melissa Xie
+[core]
+  excludesfile = ~/.gitignore
