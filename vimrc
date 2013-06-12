@@ -6,6 +6,12 @@ set nocompatible
 set noswapfile
 set vb
 
+" pull in other vim settings
+source ~/.vim/autocommand.vim
+source ~/.vim/mapping.vim
+source ~/.vim/test_runners.vim
+source ~/.vim/vundle.vim
+
 " Character encoding
 set encoding=utf-8
 
@@ -14,42 +20,6 @@ set relativenumber
 set ruler
 set showcmd
 set laststatus=2
-
-" Line/character number things
-set relativenumber
-set ruler
-set showcmd
-set laststatus=2
-
-" show a bar at column 79
-set textwidth=79
-if exists ("+colorcolumn")
-   set colorcolumn=+1
-   highlight ColorColumn ctermbg=234
-endif
-
-" pull in other vim settings
-source ~/.vim/vundle.vim
-source ~/.vim/autocommand.vim
-source ~/.vim/mapping.vim
-source ~/.vim/test_runners.vim
-
-" Line/character number things
-set relativenumber
-set ruler
-set showcmd
-set laststatus=2
-
-" gui things
-if has('gui_running')
-  set background=dark
-  set guioptions-=T
-  set guioptions+=c
-  colorscheme solarized
-else
-  set background=light
-endif
-let g:solarized_termcolors=256
 
 " syntax
 syntax enable
@@ -75,8 +45,24 @@ set backspace=indent,eol,start
 set splitbelow
 set splitright
 
-" matching brackets
-highlight MatchParen ctermbg=74
+" gui things
+if has('gui_running')
+  set background=dark
+  set guioptions-=T
+  set guioptions+=c
+  colorscheme solarized
+else
+  set background=light
+endif
+let g:solarized_termcolors=256
+
+" show a bar at column 79
+set textwidth=79
+if exists ("+colorcolumn")
+   set colorcolumn=+1
+   highlight ColorColumn ctermbg=234
+endif
+
 " tab completion
 set complete=.,b,u,]
 set wildmode=longest,list:longest
@@ -87,6 +73,9 @@ command! Q q        "because I ALWAYS do :Q by accident
 
 " allow jumping between do/end, etc. using %
 runtime macros/matchit.vim
+
+" matching brackets
+highlight MatchParen ctermbg=74
 
 " command line abbreviations
 cabbr <expr> %% expand('%:p:h')
