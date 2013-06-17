@@ -58,3 +58,5 @@ alias staging-console='heroku run console --remote staging'
 alias staging-process='watch heroku ps --remote staging'
 alias staging-releases='heroku releases --remote staging'
 alias staging-tail='heroku logs --tail --remote staging'
+
+alias p='powder'
