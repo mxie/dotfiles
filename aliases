@@ -1,7 +1,6 @@
 # unix
 alias mkdir='mkdir -p'
 alias ls="ls -Gp"
-alias vim='mvim -v'
 
 # git
 alias gwork="git config --local user.email $WORK_EMAIL"
