@@ -1,25 +1,19 @@
 " Space leader!
 let mapleader = " "
 
-" use vim defaults not vi
 set nocompatible
 set noswapfile
-set vb
+set encoding=utf-8
+set ruler
+set showcmd
+set laststatus=2
+set relativenumber
 
 " pull in other vim settings
 source ~/.vim/autocommand.vim
 source ~/.vim/mapping.vim
 source ~/.vim/test_runners.vim
 source ~/.vim/vundle.vim
-
-" Character encoding
-set encoding=utf-8
-
-" Line/character number things
-set relativenumber
-set ruler
-set showcmd
-set laststatus=2
 
 " syntax
 syntax enable
