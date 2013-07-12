@@ -45,22 +45,16 @@ set backspace=indent,eol,start
 set splitbelow
 set splitright
 
-" gui things
-if has('gui_running')
-  set background=dark
-  set guioptions-=T
-  set guioptions+=c
-  colorscheme solarized
-else
-  set background=light
-endif
-let g:solarized_termcolors=256
+" colors
+set background=dark
+colorscheme solarized
+call togglebg#map("<F6>")
 
 " show a bar at column 79
 set textwidth=79
 if exists ("+colorcolumn")
-   set colorcolumn=+1
-   highlight ColorColumn ctermbg=234
+  set colorcolumn=+1
+  highlight ColorColumn ctermbg=234
 endif
 
 " tab completion
