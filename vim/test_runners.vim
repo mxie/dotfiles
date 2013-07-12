@@ -1,8 +1,6 @@
 " vimux
 let g:VimuxHeight = "25"
 let g:VimuxOrientation = "h"
-" Run the current file with rspec
-map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
 " Prompt for a command to run
 map <Leader>rp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
@@ -17,8 +15,8 @@ map <Leader>rq :VimuxCloseRunner<CR>
 map <Leader>rs :VimuxInterruptRunner<CR>
 
 " turbux
-let g:turbux_command_rspec  = 'clear; bundle exec rspec --color'
-let g:turbux_command_cucumber = 'clear; bundle exec cucumber'
+let g:turbux_command_prefix = 'clear; bundle exec'
+let g:turbux_command_rspec  = 'rspec --color'
 " override default mappins
 let g:no_turbux_mappings = 1
 " run all tests in the spec
