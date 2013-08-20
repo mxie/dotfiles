@@ -1,6 +1,7 @@
 # unix
 alias mkdir='mkdir -p'
 alias ls="ls -Gp"
+alias now='date -u "+%Y%m%d%H%M%S"'
 
 # git
 alias gwork="git config --local user.email $WORK_EMAIL"
