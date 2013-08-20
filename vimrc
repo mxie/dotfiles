@@ -44,10 +44,10 @@ set background=dark
 colorscheme solarized
 call togglebg#map("<F6>")
 
-" show a bar at column 79
-set textwidth=79
+" show a bar at column 80
+set textwidth=80
 if exists ("+colorcolumn")
-  set colorcolumn=+1
+  let &colorcolumn=join(range(81,999),",")
   highlight ColorColumn ctermbg=234
 endif
 
