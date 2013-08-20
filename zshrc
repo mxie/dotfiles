@@ -46,3 +46,7 @@ SAVEHIST=4096
 HISTFILE=~/.history
 
 export PATH=$PATH:$HOME/bin
+
+function kill_shit {
+  ps aux | grep $1 | grep -v grep | awk '{ FS=" +" }; { print $2 }' | xargs -I pid kill -9 pid
+}
