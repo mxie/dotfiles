@@ -50,3 +50,21 @@ export PATH=$PATH:$HOME/bin
 function kill_shit {
   ps aux | grep $1 | grep -v grep | awk '{ FS=" +" }; { print $2 }' | xargs -I pid kill -9 pid
 }
+
+function diff_routes {
+  echo 'Generating new routes...'
+  bundle exec rake routes > new_routes
+  git stash --quiet
+  echo 'Generating old routes...'
+  bundle exec rake routes > old_routes
+  if [[ -f old_routes && -f new_routes ]]; then
+    echo 'Compare!'
+    diff_results=`diff -uw old_routes new_routes`
+    if [[ -n $diff_results ]]; then
+      echo $diff_results
+    else
+      echo 'No route changes. Check for errors in generated files or try restarting your shell.'
+    fi
+  fi
+  git stash pop --quiet
+}
