@@ -17,6 +17,7 @@ source ~/.vim/vundle.vim
 
 " syntax
 syntax enable
+filetype plugin indent on
 set showmatch
 
 " tabs
