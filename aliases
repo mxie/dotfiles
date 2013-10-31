@@ -7,6 +7,7 @@ alias now='date -u "+%Y%m%d%H%M%S"'
 alias gwork="command git config --local user.email $WORK_EMAIL"
 alias gpers="command git config --local user.email $PERSONAL_EMAIL"
 alias gc="command git config --get"
+alias gca="command git diff --cached"
 alias g="command git"
 alias ga="command git add"
 alias gam="command git amend"
