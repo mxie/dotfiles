@@ -16,7 +16,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'rake.vim'
 Bundle 'Lokaltog/vim-powerline'
-Bundle "myusuf3/numbers.vim"
+Bundle 'myusuf3/numbers.vim'
 Bundle 'tComment'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-fugitive'
