@@ -41,6 +41,9 @@ nnoremap <Leader>= mmgg=G`mzz
 " change hash syntax for current line
 noremap <leader>s :s/:\(\w\+\)\s\+=>\s\+/\1: /g<CR>
 
+" force reload windows
+noremap <leader>e :windo e!<CR>
+
 function! InsertTabWrapper()
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
