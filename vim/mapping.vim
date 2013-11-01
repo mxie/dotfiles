@@ -41,6 +41,9 @@ nnoremap <Leader>= mmgg=G`mzz
 " change hash syntax for current line
 noremap <leader>s :s/:\(\w\+\)\s\+=>\s\+/\1: /g<CR>
 
+" delete current file
+noremap <Leader>rm :call delete(expand('%'))<CR>
+
 " force reload windows
 noremap <leader>e :windo e!<CR>
 
