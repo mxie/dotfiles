@@ -6,7 +6,7 @@ set encoding=utf-8
 set ruler
 set showcmd
 set laststatus=2
-set relativenumber
+set number
 
 " pull in other vim settings
 source ~/.vim/autocommand.vim
