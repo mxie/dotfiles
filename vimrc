@@ -1,7 +1,6 @@
 " Space leader!
 let mapleader = " "
 
-set nocompatible
 set noswapfile
 set encoding=utf-8
 set ruler
