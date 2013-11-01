@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# Compare current routes to the ones you had before local changes.
+#
+# diff_routes
+
+function diff_routes {
+  echo 'Generating new routes...'
+  bundle exec rake routes > new_routes
+
+  # stash all your local changes quietly
+  git stash --quiet
+
+  echo 'Generating old routes...'
+  bundle exec rake routes > old_routes
+
+  if [[ -f old_routes && -f new_routes ]]; then
+    echo 'Compare!'
+    diff_results=`diff -uw old_routes new_routes`
+
+    if [[ -n $diff_results ]]; then
+      echo $diff_results
+    else
+      echo 'No route changes. Check for errors in generated files or try restarting your shell.'
+    fi
+  fi
+
+  # restore changes
+  git stash pop --quiet
+}
