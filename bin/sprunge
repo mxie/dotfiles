@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# borrowed from https://github.com/pbrisbin/dotfiles/blob/master/bin/sprunge
+#
+# paste stdin or the argument given to sprunge.us.
+#
+# sprunge foo.rb
+# sprunge foo rb
+# <command> | sprunge rb
+
+content=/dev/stdin
+
+if [[ -f "$1" ]]; then
+  content="$1"; shift
+fi
+
+ext="$1"
+
+if [[ -z "$ext" ]] && [[ "$content" == *.* ]]; then
+  ext="${content##*.}"
+fi
+
+read -r link < <(curl -# -F 'sprunge=<-' http://sprunge.us < "$content")
+
+link="$link?$ext"
+
+printf "$link" | pbcopy
