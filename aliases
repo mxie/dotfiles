@@ -62,3 +62,7 @@ alias staging-tail='heroku logs --tail --remote staging'
 
 alias p='powder'
 alias upbrew='brew update && brew upgrade && brew cleanup'
+
+# tmux
+alias tn="tmux new-session -s"
+alias ta="tmux attach-session -t"
