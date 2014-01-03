@@ -8,6 +8,7 @@
 [alias]
   amend = commit --amend
   co = checkout
+  cm = commit
   st = status
   undo = reset HEAD^
   unstage = reset HEAD
