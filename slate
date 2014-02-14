@@ -1,38 +1,149 @@
-# Resize Bindings
-bind l:alt       resize +10% +0
-bind h:alt       resize -10% +0
-bind k:alt       resize +0   -10%
-bind j:alt       resize +0   +10%
-bind l:ctrl;alt  resize -10% +0 bottom-right
-bind h:ctrl;alt  resize +10% +0 bottom-right
-bind k:ctrl;alt  resize +0   +10% bottom-right
-bind j:ctrl;alt  resize +0   -10% bottom-right
+# SizeUp commands translated to Slate
 
-# Push Bindings
-bind l:ctrl;cmd  push right bar-resize:screenSizeX/3
-bind h:ctrl;cmd  push left  bar-resize:screenSizeX/3
-bind k:ctrl;cmd  push up    bar-resize:screenSizeY/2
-bind j:ctrl;cmd  push down  bar-resize:screenSizeY/2
+# TODOs
+#   Spaces Actions
+#   fix SnapBack
+#   option to resize windows proportionally with Multiple Monitor actions
+#   option to resize window absolutely instead of relative to screen size with Center
+#   option to not resize window on Center
+#   SizeUp's "best effort" behavior
 
-# Nudge Bindings
-bind l:shift;alt nudge +10% +0
-bind h:shift;alt nudge -10% +0
-bind k:shift;alt nudge +0   -10%
-bind j:shift;alt nudge +0   +10%
+### Settings accessed through SizeUp's preferences window
 
-# Throw Bindings
-bind 1:ctrl;alt         throw 0 resize
-bind 2:ctrl;alt         throw 1 resize
-bind 3:ctrl;alt         throw 2 resize
-bind l:ctrl;alt;cmd     throw right resize
-bind h:ctrl;alt;cmd     throw left  resize
-bind k:ctrl;alt;cmd     throw up    resize
-bind j:ctrl;alt;cmd     throw down  resize
+# Screen Edge Margins
+alias ScreenEdgeLeft 0
+alias ScreenEdgeRight 0
+alias ScreenEdgeUp 0
+alias ScreenEdgeDown 0
 
-# Focus Bindings
-bind l:cmd     focus right
-bind h:cmd     focus left
-bind k:cmd     focus up
-bind j:cmd     focus down
-bind k:cmd;alt focus behind
-bind j:cmd;alt focus behind
+# Partition (Between Window) Margins
+alias PartitionX 0
+alias PartitionY 0
+
+# settings for Center with resizing relative to screen size
+alias centerWidth 0.50
+alias centerHeight 0.50
+
+# Split Screen Partitions
+alias SplitX 0.50
+alias SplitY 0.50
+
+# Quarter Screen Partitions
+alias QuarterX 0.25
+alias QuarterY 0.25
+
+# aliases for Screen Edge Margins
+alias sizeX (screenSizeX-${ScreenEdgeLeft}-${ScreenEdgeRight})
+alias sizeY (screenSizeY-${ScreenEdgeUp}-${ScreenEdgeDown})
+
+alias originX screenOriginX+${ScreenEdgeLeft}
+alias originY screenOriginY+${ScreenEdgeUp}
+
+# aliases used for Split Screen Partitions
+alias splitLeft (${sizeX}*${SplitX}-(${PartitionX}/2))
+alias splitRight (${sizeX}*(1-${SplitX})-(${PartitionX}/2))
+alias splitUp (${sizeY}*(1-${SplitY})-(${PartitionY}/2))
+alias splitDown (${sizeY}*${SplitY}-(${PartitionY}/2))
+
+alias rightSplitOrigin ${originX}+${sizeX}*${SplitX}+(${PartitionX}/2)
+alias downSplitOrigin ${originY}+${sizeY}*(1-${SplitY})+(${PartitionY}/2)
+
+# aliases for Quarter Screen Partitions
+alias quarterLeft ${sizeX}*${QuarterX}-(${PartitionX}/2)
+alias quarterRight ${sizeX}*(1-${QuarterX})-(${PartitionX}/2)
+alias quarterUp ${sizeY}*(1-${QuarterY})-(${PartitionY}/2)
+alias quarterDown ${sizeY}*${QuarterY}-(${PartitionY}/2)
+
+alias quarterRightOrigin ${originX}+${sizeX}*${QuarterX}+(${PartitionX}/2)
+alias quarterDownOrigin ${originY}+${sizeY}*(1-${QuarterY})+(${PartitionY}/2)
+
+
+# aliases for Centering, with resizing relative to screen size
+alias centerXoffset ${sizeX}*((1-${centerWidth})/2)
+alias centerYoffset ${sizeY}*((1-${centerHeight})/2)
+
+alias centerOriginX ${originX}+${centerXoffset}
+alias centerOriginY ${originY}+${centerYoffset}
+
+alias centerSizeX ${sizeX}*${centerWidth}
+alias centerSizeY ${sizeY}*${centerHeight}
+
+# # settings for SnapBack
+# config undoMaxStackSize 0
+# config undoOps move,throw
+
+
+### alias definitions to match SizeUp command names
+
+alias Left move ${originX};${originY} ${splitLeft};${sizeY}
+alias Right move ${rightSplitOrigin};${originY} ${splitRight};${sizeY}
+alias Up move ${originX};${originY} ${sizeX};${splitUp}
+alias Down move ${originX};${downSplitOrigin} ${sizeX};${splitDown}
+
+alias UpperLeft move ${originX};${originY} ${quarterLeft};${quarterUp}
+alias UpperRight move ${quarterRightOrigin};${originY} ${quarterRight};${quarterUp}
+alias LowerLeft move ${originX};${quarterDownOrigin} ${quarterLeft};${quarterDown}
+alias LowerRight move ${quarterRightOrigin};${quarterDownOrigin} ${quarterRight};${quarterDown}
+
+alias FullScreen move ${originX};${originY} ${sizeX};${sizeY}
+alias Center move ${centerOriginX};${centerOriginY} ${centerSizeX};${centerSizeY}
+alias TallCenter move ${centerOriginX};${ScreenEdgeUp} ${sizeX};${sizeY}
+
+alias PrevMonitor throw previous
+alias NextMonitor throw next
+
+
+
+#screens
+alias LeftMonitor 0
+alias RightMonitor 1
+
+### bindings / Shortcuts
+
+bind h:ctrl;alt;cmd ${Left}
+bind l:ctrl;alt;cmd ${Right}
+bind k:ctrl;alt;cmd ${Up}
+bind j:ctrl;alt;cmd ${Down}
+
+bind h:shift;ctrl;alt ${UpperLeft}
+bind k:shift;ctrl;alt ${UpperRight}
+bind j:shift;ctrl;alt ${LowerLeft}
+bind l:shift;ctrl;alt ${LowerRight}
+
+bind m:ctrl;alt;cmd ${FullScreen}
+bind c:ctrl;alt;cmd ${Center}
+
+bind h:ctrl;alt ${PrevMonitor}
+bind l:ctrl;alt ${NextMonitor}
+
+alias FocusIterm focus 'iTerm'
+alias FocusFlint focus 'Flint'
+
+# Always put the move direction before the monitor
+# Monitor must be a number, not an action(such as throw)
+layout dualmonitors 'Airmail' ${Center} ${LeftMonitor}
+layout dualmonitors 'Google Chrome' ${TallCenter} ${LeftMonitor}
+layout dualmonitors 'iTerm' ${FullScreen} ${LeftMonitor}
+
+layout dualmonitors 'Adium' ${UpperRight} ${RightMonitor}
+layout dualmonitors 'Flint' ${Right} ${RightMonitor}
+
+# Leave iTerm & Flint as the final focus
+layout dualmonitors AFTER ${FocusFlint}
+layout dualmonitors AFTER ${FocusIterm}
+
+#Single Monitor
+layout singlemonitor 'Twitterfic' ${UpperLeft}
+layout singlemonitor 'Airmail' ${Center}
+layout singlemonitor 'Google Chrome' ${TallCenter}
+layout singlemonitor 'iTerm' ${FullScreen}
+layout singlemonitor 'Adium' ${Right}
+layout singlemonitor 'Flint' ${Right}
+# Leave iTerm on focus
+layout dualmonitors AFTER ${FocusIterm}
+
+default dualmonitors count:2
+default singlemonitor count:1
+
+bind d:ctrl;alt;cmd layout dualmonitors
+bind s:ctrl;alt;cmd layout singlemonitor
