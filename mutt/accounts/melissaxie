@@ -1,0 +1,5 @@
+set from      = "me@melissaxie.com"
+set sendmail  = "/opt/boxen/homebrew/bin/msmtp -a melissaxie"
+set spoolfile = "+melissaxie/INBOX"
+set mbox      = "+melissaxie/archive"
+set postponed = "+melissaxie/drafts"

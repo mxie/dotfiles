@@ -1,0 +1,68 @@
+[general]
+ui = ttyui
+accounts = Gmail, MelissaXie, thoughtbot
+pythonfile=~/.offlineimap.py
+fsync = False
+
+[Account Gmail]
+localrepository = Gmail-Local
+remoterepository = Gmail-Remote
+postsynchook = notmuch new
+status_backend = sqlite
+
+[Repository Gmail-Local]
+type = Maildir
+localfolders = ~/.mail/gmail
+nametrans = local_folder_to_remote_folder
+
+[Repository Gmail-Remote]
+maxconnections = 3
+type = Gmail
+remoteuser = mlxie8289@gmail.com
+remotepasseval = get_password('Google')
+realdelete = no
+nametrans = remote_folder_to_local_folder
+folderfilter = should_include_folder
+sslcacertfile = /opt/boxen/homebrew/etc/openssl/cert.pem
+
+[Account MelissaXie]
+localrepository = MelissaXie-Local
+remoterepository = MelissaXie-Remote
+postsynchook = notmuch new
+status_backend = sqlite
+
+[Repository MelissaXie-Local]
+type = Maildir
+localfolders = ~/.mail/melissaxie
+nametrans = local_folder_to_remote_folder
+
+[Repository MelissaXie-Remote]
+maxconnections = 3
+type = Gmail
+remoteuser = me@melissaxie.com
+remotepasseval = get_password('Google (domain)')
+realdelete = no
+nametrans = remote_folder_to_local_folder
+folderfilter = should_include_folder
+sslcacertfile = /opt/boxen/homebrew/etc/openssl/cert.pem
+
+[Account thoughtbot]
+localrepository = thoughtbot-Local
+remoterepository = thoughtbot-Remote
+postsynchook = notmuch new
+status_backend = sqlite
+
+[Repository thoughtbot-Local]
+type = Maildir
+localfolders = ~/.mail/thoughtbot
+nametrans = local_folder_to_remote_folder
+
+[Repository thoughtbot-Remote]
+maxconnections = 3
+type = Gmail
+remoteuser = melissa@thoughtbot.com
+remotepasseval = get_password('thoughtbot (mutt)')
+realdelete = no
+nametrans = remote_folder_to_local_folder
+folderfilter = should_include_folder
+sslcacertfile = /opt/boxen/homebrew/etc/openssl/cert.pem

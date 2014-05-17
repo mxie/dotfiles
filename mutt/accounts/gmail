@@ -1,0 +1,5 @@
+set from      = "mlxie8289@gmail.com"
+set sendmail  = "/opt/boxen/homebrew/bin/msmtp -a gmail"
+set spoolfile = "+gmail/INBOX"
+set mbox      = "+gmail/archive"
+set postponed = "+gmail/drafts"
