@@ -2,9 +2,14 @@
   name = Melissa Xie
 
 [color]
+  ui = auto
+  interactive = auto
   branch = auto
   diff = auto
   status = auto
+
+[color "status"]
+  untracked = cyan
 
 [alias]
   aa = add -Av
