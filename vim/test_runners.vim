@@ -20,9 +20,9 @@ let g:turbux_command_rspec  = 'rspec --color'
 " override default mappins
 let g:no_turbux_mappings = 1
 " run all tests in the spec
-map <leader>a <Plug>SendTestToTmux
+map <Leader>a <Plug>SendTestToTmux
 " run this line in the spec
-map <leader>l <Plug>SendFocusedTestToTmux
+map <Leader>l <Plug>SendFocusedTestToTmux
 
 " align Cucumber tables as you type
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a

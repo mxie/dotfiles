@@ -27,25 +27,25 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <Leader>nt <C-W>T
 
 " preserve indentation when pasting text from the OS X clipboard
-noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+noremap <Leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 " toggle comment
-noremap <leader>c :TComment<CR>
+noremap <Leader>c :TComment<CR>
 
 " turnoff highlight
-noremap <leader>h :noh<CR>
+noremap <Leader>h :noh<CR>
 
 " format file and return to where I was before
 nnoremap <Leader>= mmgg=G`mzz
 
 " change hash syntax for current line
-noremap <leader>s :s/:\(\w\+\)\s\+=>\s\+/\1: /g<CR>
+noremap <Leader>s :s/:\(\w\+\)\s\+=>\s\+/\1: /g<CR>
 
 " delete current file
 noremap <Leader>rm :call delete(expand('%'))<CR>
 
 " force reload windows
-noremap <leader>e :windo e!<CR>
+noremap <Leader>e :windo e!<CR>
 
 function! InsertTabWrapper()
     let col = col('.') - 1
