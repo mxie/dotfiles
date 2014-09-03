@@ -8,3 +8,6 @@ augroup markdown
     au!
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
