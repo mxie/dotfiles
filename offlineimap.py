@@ -1,5 +1,6 @@
-import onepassword
-from getpass import getpass
+import os
+import re
+import subprocess
 
 FOLDER_MAP = {
     "drafts":  "[Gmail]/Drafts",
@@ -17,8 +18,6 @@ EXCLUDED_FOLDERS = [
     "[Gmail]/Spam"
 ]
 
-keychain = onepassword.Keychain("~/Dropbox/1Password.agilekeychain")
-
 def local_folder_to_remote_folder(folder):
     return FOLDER_MAP.get(folder, folder)
 
@@ -28,8 +27,6 @@ def remote_folder_to_local_folder(folder):
 def should_include_folder(folder):
     return folder not in EXCLUDED_FOLDERS
 
-def get_password(name):
-    global keychain
-    while keychain.locked:
-        keychain.unlock(getpass("1Password: "))
-    return keychain.item(name).password
+def get_password(email_address):
+    pw = subprocess.check_output(["/Users/melissaxie/.bin/getnetrc", email_address])
+    return str(pw).strip()

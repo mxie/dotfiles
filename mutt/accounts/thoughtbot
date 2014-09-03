@@ -1,5 +1,9 @@
+# vim: ft=muttrc
+
 set from      = "melissa@thoughtbot.com"
 set sendmail  = "/opt/boxen/homebrew/bin/msmtp -a thoughtbot"
 set spoolfile = "+thoughtbot/INBOX"
 set mbox      = "+thoughtbot/archive"
 set postponed = "+thoughtbot/drafts"
+
+set pgp_sign_as = 1C84204F

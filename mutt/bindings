@@ -1,0 +1,13 @@
+# vim: ft=muttrc
+bind attach <return> view-mailcap   # view attachments properly.
+bind index <space>  collapse-thread
+bind index <tab>    sync-mailbox
+bind index G        last-entry
+bind index gg       first-entry
+bind index,pager C        next-unread-mailbox
+bind index,pager R        group-reply
+bind pager G  bottom
+bind pager R  group-reply
+bind pager gg top
+bind pager j  next-line
+bind pager k  previous-line

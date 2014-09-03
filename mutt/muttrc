@@ -49,12 +49,6 @@ set sort_aux = reverse-last-date-received  # like gmail
 set sort_re                                # thread based on regex
 set uncollapse_jump                        # don't collapse on an unread message
 
-bind index gg       first-entry
-bind index G        last-entry
-bind index R        group-reply
-bind index <tab>    sync-mailbox
-bind index <space>  collapse-thread
-
 # Ctrl-R to mark all as read
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
@@ -104,5 +98,7 @@ unset mime_forward                   # forward attachments as part of body
 
 source ~/.mutt/accounts/gmail       # default account
 folder-hook gmail "source ~/.mutt/accounts/gmail"
-folder-hook melissa "source ~/.mutt/accounts/melissaxie"
+folder-hook melissaxie "source ~/.mutt/accounts/melissaxie"
 folder-hook thoughtbot "source ~/.mutt/accounts/thoughtbot"
+source ~/.mutt/colors
+source ~/.mutt/bindings

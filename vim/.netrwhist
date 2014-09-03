@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/melissaxie/src/thoughtbot/switchboard/app/assets/javascripts'
+let g:netrw_dirhist_2='/Users/melissaxie/src/thoughtbot/switchboard/app/assets/javascripts/controllers'
+let g:netrw_dirhist_3='/Users/melissaxie/src/open_source/railsbridge/website/source/stylesheets'
+let g:netrw_dirhist_4='/Users/melissaxie/src/client/gameface'

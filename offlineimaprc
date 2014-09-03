@@ -1,8 +1,11 @@
+# vim: ft=cfg
+
 [general]
 ui = ttyui
 accounts = Gmail, MelissaXie, thoughtbot
-pythonfile=~/.offlineimap.py
+pythonfile = ~/.offlineimap.py
 fsync = False
+maxsyncaccounts = 3
 
 [Account Gmail]
 localrepository = Gmail-Local
@@ -19,7 +22,7 @@ nametrans = local_folder_to_remote_folder
 maxconnections = 3
 type = Gmail
 remoteuser = mlxie8289@gmail.com
-remotepasseval = get_password('Google')
+remotepasseval = get_password('mlxie8289@gmail.com')
 realdelete = no
 nametrans = remote_folder_to_local_folder
 folderfilter = should_include_folder
@@ -40,7 +43,7 @@ nametrans = local_folder_to_remote_folder
 maxconnections = 3
 type = Gmail
 remoteuser = me@melissaxie.com
-remotepasseval = get_password('Google (domain)')
+remotepasseval = get_password('me@melissaxie.com')
 realdelete = no
 nametrans = remote_folder_to_local_folder
 folderfilter = should_include_folder
@@ -61,7 +64,7 @@ nametrans = local_folder_to_remote_folder
 maxconnections = 3
 type = Gmail
 remoteuser = melissa@thoughtbot.com
-remotepasseval = get_password('thoughtbot (mutt)')
+remotepasseval = get_password('melissa@thoughtbot.com')
 realdelete = no
 nametrans = remote_folder_to_local_folder
 folderfilter = should_include_folder
