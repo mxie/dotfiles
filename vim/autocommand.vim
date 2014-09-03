@@ -1,3 +1,4 @@
+autocmd BufRead,BufNewFile gitconfig set filetype=gitconfig
 autocmd BufRead,BufNewFile Gemfile set filetype=ruby
 autocmd BufRead,BufNewFile Appraisals set filetype=ruby
 autocmd BufRead,BufNewFile .tmux.conf*,tmux.conf* set filetype=tmux
