@@ -47,7 +47,7 @@ alias giv="gem install -v"
 
 # rails
 alias migrate="rake db:migrate && rake db:rollback && rake db:migrate && rake db:test:prepare"
-alias rrg="bundle exec rake routes | grep"
+alias rrg="bundle exec rake routes | ag"
 alias dr='diff_routes'
 
 # heroku staging
