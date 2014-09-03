@@ -47,3 +47,11 @@ function parse_git_branch() {
 
 # prompt
 export PS1='$(parse_git_branch)[${SSH_CONNECTION+"%{$fg_no_bold[green]%}%n@%m:"}%{$fg_no_bold[blue]%}%~%{$reset_color%} %{$fg_no_bold[cyan]%}$(parse_git_uncommitted)$(parse_git_unstaged)%{$reset_color%}] %{$fg_no_bold[magenta]%}$%{$reset_color%} '
+
+# recommended by brew doctor
+export PATH="/usr/local/bin:$PATH"
+export PATH="$PATH:/usr/local/lib/node_modules"
+source $(brew --prefix nvm)/nvm.sh
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh --no-rehash)"
+export PATH="$HOME/.bin:$PATH"

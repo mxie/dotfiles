@@ -1,20 +1,9 @@
 #!/bin/sh
+echo 'Set up dev environment using laptop'
+bash <(curl -s https://raw.githubusercontent.com/thoughtbot/laptop/master/mac) 2>&1 | tee ~/laptop.log
 
-echo "Symlinking dotfiles to your home directory"
-for name in *; do
-  target="$HOME/.$name"
-
-  if [ -e "$target" ]; then
-    if [ ! -L "$target" ]; then
-      echo "WARNING: $target exists but is not a symlink."
-    fi
-  else
-    if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ]; then
-      echo "Creating $target"
-      ln -s "$PWD/$name" "$target"
-    fi
-  fi
-done
+echo 'Using RCM to symlink dotfiles'
+rcup -v -x install.sh -x README.md -d ~/.dotfiles
 
 vundle_dir=~/.vim/bundle/vundle
 if [ ! -d $vundle_dir ]; then
@@ -24,3 +13,6 @@ fi
 
 echo 'Running BundleInstall'
 vim -u vim/vundle.vim +BundleInstall +qa
+
+# restart the shell
+exec -l $SHELL

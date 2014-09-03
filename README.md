@@ -10,9 +10,9 @@ Requirements
 Installation
 ------------
 
-Do the following to set up your dotfiles:
+In your home directory, run the following commands:
 
-    git clone git@github.com:mxie/dotfiles.git
+    git clone git@github.com:mxie/dotfiles.git .dotfiles
     cd dotfiles
     ./install.sh
 
