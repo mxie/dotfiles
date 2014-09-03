@@ -47,6 +47,12 @@ noremap <Leader>rm :call delete(expand('%'))<CR>
 " force reload windows
 noremap <Leader>e :windo e!<CR>
 
+" redraw my windows because sometimes it gets fucked up
+noremap <Leader>r :redraw!<CR>
+
+" write to file without prehooks
+noremap <Leader>w :noautocmd w<CR>
+
 function! InsertTabWrapper()
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
