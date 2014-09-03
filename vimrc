@@ -41,8 +41,7 @@ set splitright
 
 " colors
 set background=dark
-colorscheme solarized
-call togglebg#map("<F6>")
+colorscheme molokai
 
 " show a bar at column 80
 set textwidth=80
