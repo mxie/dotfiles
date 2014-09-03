@@ -41,12 +41,12 @@ function parse_git_unstaged {
 function parse_git_branch() {
   ref=$(command git symbolic-ref HEAD 2> /dev/null)
   if [[ -n $ref ]]; then
-    echo "(%{$fg_bold[red]%}${ref#refs/heads/}%{$reset_color%}) "
+    echo "%{$fg_bold[red]%}${ref#refs/heads/}%{$reset_color%} "
   fi
 }
 
 # prompt
-export PS1='$(parse_git_branch)[${SSH_CONNECTION+"%{$fg_no_bold[green]%}%n@%m:"}%{$fg_no_bold[blue]%}%~%{$reset_color%} %{$fg_no_bold[cyan]%}$(parse_git_uncommitted)$(parse_git_unstaged)%{$reset_color%}] %{$fg_no_bold[magenta]%}$%{$reset_color%} '
+export PS1='$(parse_git_branch)[%{$fg_no_bold[cyan]%}%~%{$reset_color%} %{$fg_no_bold[magenta]%}$(parse_git_uncommitted)$(parse_git_unstaged)%{$reset_color%}] %{$fg_no_bold[green]%}$%{$reset_color%} '
 
 # recommended by brew doctor
 export PATH="/usr/local/bin:$PATH"
