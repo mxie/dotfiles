@@ -1,6 +1,9 @@
 [user]
   name = Melissa Xie
 
+[core]
+  excludesfile = ~/.gitignore
+
 [color]
   ui = auto
   interactive = auto
@@ -46,3 +49,6 @@
 
 [help]
   autocorrect = 1
+
+[hub]
+  protocol = https
