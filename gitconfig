@@ -13,11 +13,11 @@
 
 [alias]
   aa = add -Av
-  cam = commit --amend
+  cam = commit -v --amend
   b = branch
   cah = commit --amend -C HEAD
   cf = config
-  cm = commit
+  cm = commit -v
   co = checkout
   con = !git add -A && git rebase --continue
   d = diff
