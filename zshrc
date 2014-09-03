@@ -32,21 +32,21 @@ function kill_shit {
 
 # set up to display branch name and status
 function parse_git_uncommitted {
-  [[ -d .git && $(command git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "✗"
-}
-function parse_git_unstaged {
-  line=$(command git status 2> /dev/null | sed -n '2 p')
-  [[ -d .git && "$line" != "# Changes not staged for commit:"  && "$line" != "nothing to commit, working directory clean" ]] && echo "*"
+  [[ -d .git && $(command git status 2> /dev/null) =~ "Changes|Untracked" ]] && echo "✗"
 }
 function parse_git_branch() {
   ref=$(command git symbolic-ref HEAD 2> /dev/null)
   if [[ -n $ref ]]; then
-    echo "%{$fg_bold[red]%}${ref#refs/heads/}%{$reset_color%} "
+    echo "${ref#refs/heads/} "
   fi
+}
+function parse_git_unpushed {
+  unpushed_commits=$(command git cherry -v origin/$(parse_git_branch) 2> /dev/null)
+  [[ -d .git && -n $unpushed_commits ]] && echo "*"
 }
 
 # prompt
-export PS1='$(parse_git_branch)[%{$fg_no_bold[cyan]%}%~%{$reset_color%} %{$fg_no_bold[magenta]%}$(parse_git_uncommitted)$(parse_git_unstaged)%{$reset_color%}] %{$fg_no_bold[green]%}$%{$reset_color%} '
+export PS1='%{$fg_bold[red]%}$(parse_git_branch)%{$reset_color%}[${SSH_CONNECTION+"%{$fg_no_bold[green]%}%n@%m:"}%{$fg_no_bold[cyan]%}%~%{$reset_color%} %{$fg_no_bold[magenta]%}$(parse_git_uncommitted)$(parse_git_unpushed)%{$reset_color%}] %{$fg_no_bold[green]%}%% %{$reset_color%}'
 
 # recommended by brew doctor
 export PATH="/usr/local/bin:$PATH"
