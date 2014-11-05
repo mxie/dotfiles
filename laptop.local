@@ -1,0 +1,24 @@
+# Other packages
+brew install weechat --with-lua --with-perl --with-python --with-ruby
+brew install gpg2
+brew install gnu-sed --default-names
+
+# Cask packages
+brew install caskroom/cask/brew-cask
+
+apps=(
+  "iterm2"
+  "alfred"
+  "rdio"
+  "skype"
+)
+
+for app in $apps; do
+  brew cask install "$app"
+done
+
+brew cask alfred link
+
+# for weechat
+curl https://raw.githubusercontent.com/thoughtbot/weechat-slacklog/master/slacklog.rb -o ~/.weechat/ruby/slacklog.rb
+cd ~/.weechat/ruby/autoload && ln -s ../slacklog.rb .
