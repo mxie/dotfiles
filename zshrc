@@ -4,6 +4,9 @@ autoload -U compinit && compinit
 # TODO: need description
 autoload -U select-word-style && select-word-style bash
 
+# for some nice batch actions to files
+autoload -U zmv
+
 # use vim as an editor
 export VISUAL='vim'
 export EDITOR=$VISUAL
