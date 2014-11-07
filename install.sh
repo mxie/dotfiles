@@ -3,7 +3,7 @@ echo 'Set up dev environment using laptop'
 bash <(curl -s https://raw.githubusercontent.com/thoughtbot/laptop/master/mac) 2>&1 | tee ~/laptop.log
 
 echo 'Using RCM to symlink dotfiles'
-rcup -v -x install.sh -x README.md -d ~/.dotfiles
+rcup -v
 
 vundle_dir=~/.vim/bundle/vundle
 if [ ! -d $vundle_dir ]; then
