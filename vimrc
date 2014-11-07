@@ -57,6 +57,7 @@ set wildmode=longest,list:longest
 " other stuff
 command! W w        "because I ALWAYS do :W by accident
 command! Q q        "because I ALWAYS do :Q by accident
+command! Wa wa      "because I ALWAYS do :Wa by accident
 
 " allow jumping between do/end, etc. using %
 runtime macros/matchit.vim
@@ -78,3 +79,8 @@ endif
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
+
+" enable mouse mode
+if has('mouse')
+  set mouse=a
+endif
