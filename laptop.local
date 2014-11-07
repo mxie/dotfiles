@@ -1,4 +1,5 @@
 # Other packages
+brew tap thoughtbot/formulae && brew install rcm
 brew install weechat --with-lua --with-perl --with-python --with-ruby
 brew install gpg2
 brew install gnu-sed --default-names

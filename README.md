@@ -3,9 +3,11 @@ dotfiles
 
 Requirements
 ------------
-* zsh
 * git
 * vim
+* [rcm] for dotfile management
+
+[rcm]: https://github.com/thoughtbot/rcm
 
 Installation
 ------------
