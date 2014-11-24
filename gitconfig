@@ -17,7 +17,7 @@
 [alias]
   a = add -v
   aa = add -Av
-  am = commit -v --amend
+  cam = commit -v --amend
   ap = add -p
   b = branch
   cah = commit --amend -C HEAD
