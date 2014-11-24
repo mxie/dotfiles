@@ -1,9 +1,13 @@
-# Other packages
-brew tap thoughtbot/formulae && brew install rcm
-brew install weechat --with-lua --with-perl --with-python --with-ruby
-brew install gpg2
+# additional packages
 brew install --HEAD hub
 brew install gnu-sed --default-names
+brew install gpg2
+brew install weechat --with-lua --with-perl --with-python --with-ruby
+brew install wget
+
+# thoughtbot packages
+brew tap thoughtbot/formulae
+brew install rcm gitsh
 
 # Cask packages
 brew install caskroom/cask/brew-cask
