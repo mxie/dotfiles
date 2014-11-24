@@ -15,33 +15,39 @@
   untracked = cyan
 
 [alias]
+  a = add -v
   aa = add -Av
-  cam = commit -v --amend
+  am = commit -v --amend
+  ap = add -p
   b = branch
   cah = commit --amend -C HEAD
   cf = config
   cm = commit -v
   co = checkout
-  con = !git add -A && git rebase --continue
   d = diff
   dc = diff --cached
   dm = diff master
-  m = merge
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  m = merge --ff-only
   nb = checkout -b
   p = push
   pop = stash pop
-  pr = !git push -f && git pull-request -o
-  r = rebase
+  r = rebase -i
+  rim = rebase -i master
   sf = show --name-only
   st = status
-  undo = reset HEAD^
-  un = reset HEAD
+  uncommit = reset HEAD^
   unfuck = reset --hard
-  up = !git fetch origin && git checkout master && git merge origin/master && git checkout - && git rebase origin/master
+  unstage = reset HEAD
+
+  con = !git add -A && git rebase --continue
+  # delete any local branches that have already been merged
+  db = !git branch --merged | grep -v master | xargs git branch -d
   # Merge current branch into master, only if it's a fast-forward. Doesn't check
   # out master if it's not a FF merge.
   mm = !test `git rev-parse master` = $(git merge-base HEAD master) && git checkout master && git merge HEAD@{1} || echo "Non-fastforward"
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  pr = !git push -f && gh pull-request -o
+  up = !git fetch origin && git checkout master && git merge origin/master && git checkout - && git rebase origin/master
 
 [push]
   # Push current branch even if you've never pushed it before

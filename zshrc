@@ -58,3 +58,6 @@ source $(brew --prefix nvm)/nvm.sh
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh --no-rehash)"
 export PATH="$HOME/.bin:$PATH"
+
+# aliases `hub` to `git` for the shell
+eval "$(hub alias -s)"
