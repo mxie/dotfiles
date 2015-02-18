@@ -11,9 +11,10 @@ alias gpers="git config --local user.email $PERSONAL_EMAIL"
 alias ga="git add"
 alias gb="git branch"
 alias gd="git diff"
+alias gl="git log"
 alias gm="git merge"
 alias gp="git push"
-alias gr="git rebase -i"
+alias gr="git rebase"
 
 # postgres
 alias db-restore='pg_restore --verbose --clean --no-acl --no-owner -d'
