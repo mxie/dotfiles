@@ -1,6 +1,7 @@
 " vimux
 let g:VimuxHeight = "25"
 let g:VimuxOrientation = "h"
+let VimuxResetSequence = ""
 " Prompt for a command to run
 map <Leader>rp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
