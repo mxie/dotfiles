@@ -6,6 +6,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'Keithbsmiley/tmux.vim'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/magictags'
