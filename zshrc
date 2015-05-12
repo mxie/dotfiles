@@ -51,6 +51,21 @@ function parse_git_unpushed {
 # prompt
 export PS1='%{$fg_bold[red]%}$(parse_git_branch)%{$reset_color%}[${SSH_CONNECTION+"%{$fg_no_bold[green]%}%n@%m:"}%{$fg_no_bold[cyan]%}%~%{$reset_color%} %{$fg_no_bold[magenta]%}$(parse_git_uncommitted)$(parse_git_unpushed)%{$reset_color%}] %{$fg_no_bold[green]%}%% %{$reset_color%}'
 
+# auto-rename tmux window
+# thanks teo!
+rename_tmux_window_to_current_dir() {
+  if [ ! -z "$TMUX" ]; then
+    if [ "$PWD" != "$LPWD" ]; then
+      LPWD="$PWD"
+      tmux rename-window $(print -Pn "%c")
+    fi
+  fi
+}
+
+function precmd {
+  rename_tmux_window_to_current_dir
+}
+
 # recommended by brew doctor
 export PATH="/usr/local/bin:$PATH"
 export PATH="$PATH:/usr/local/lib/node_modules"
