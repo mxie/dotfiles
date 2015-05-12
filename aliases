@@ -37,6 +37,7 @@ alias giv="gem install -v"
 alias migrate="rake db:migrate && rake db:rollback && rake db:migrate && rake db:migrate RAILS_ENV=test"
 alias rrg="bundle exec rake routes | ag"
 alias dr='diff_routes'
+alias rollback="RAILS_ENV=test rake db:rollback && rake db:rollback"
 
 # heroku staging
 alias staging='heroku open staging'
