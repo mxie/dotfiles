@@ -53,6 +53,9 @@ noremap <Leader>r :redraw!<CR>
 " write to file without prehooks
 noremap <Leader>w :noautocmd w<CR>
 
+" start a file search
+noremap <Leader>g :Ag!
+
 function! InsertTabWrapper()
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
