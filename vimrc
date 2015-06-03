@@ -43,7 +43,7 @@ set splitright
 set background=dark
 colorscheme molokai
 
-" show a bar at column 80
+" show a different background color at column 80
 set textwidth=80
 if exists ("+colorcolumn")
   let &colorcolumn=join(range(81,999),",")
