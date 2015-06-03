@@ -36,7 +36,9 @@
   rim = rebase -i master
   sf = show --name-only
   st = status
+  uc = uncommit
   uf = unfuck
+  us = unstage
   current-branch = !sh -c 'git rev-parse --abbrev-ref HEAD' -
   uncommit = reset HEAD^
   unfuck = !sh -c 'branch=$(git current-banch) && git reset --hard origin/$branch'
