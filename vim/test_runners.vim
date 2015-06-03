@@ -1,7 +1,7 @@
 " vimux
 let g:VimuxHeight = "25"
 let g:VimuxOrientation = "h"
-let VimuxResetSequence = ""
+let VimuxResetSequence = "q; C-l"
 " Prompt for a command to run
 map <Leader>rp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
@@ -16,6 +16,7 @@ map <Leader>rq :VimuxCloseRunner<CR>
 map <Leader>rs :VimuxInterruptRunner<CR>
 
 " turbux
+let g:turbux_runner = "vimux"
 let g:turbux_command_prefix = 'clear; bundle exec'
 let g:turbux_command_rspec  = 'rspec --color'
 " override default mappins
