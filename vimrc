@@ -43,12 +43,8 @@ set splitright
 set background=dark
 colorscheme molokai
 
-" show a different background color at column 80
+" set character limit to 80 per line
 set textwidth=80
-if exists ("+colorcolumn")
-  let &colorcolumn=join(range(81,999),",")
-  highlight ColorColumn ctermbg=234
-endif
 
 " tab completion
 set complete=.,b,u,]
