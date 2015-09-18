@@ -25,10 +25,12 @@
   cf = config
   cm = commit -v
   co = checkout
+  cp = cherry-pick
   d = diff
   dc = diff --cached
   dm = diff master
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lm = log master..
   m = merge --ff-only
   nb = checkout -b
   p = push
