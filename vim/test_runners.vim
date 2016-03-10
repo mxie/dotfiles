@@ -1,6 +1,6 @@
 " vimux
-let g:VimuxHeight = "25"
-let g:VimuxOrientation = "h"
+let g:VimuxHeight = "27"
+let g:VimuxOrientation = "v"
 let VimuxResetSequence = "q; C-l"
 " Prompt for a command to run
 map <Leader>rp :VimuxPromptCommand<CR>
