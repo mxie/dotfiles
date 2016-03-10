@@ -21,6 +21,7 @@
   cam = commit -v --amend
   ap = add -p
   b = branch
+  br = browse
   cah = commit --amend -C HEAD
   cf = config
   cm = commit -v
@@ -29,13 +30,16 @@
   d = diff
   dc = diff --cached
   dm = diff master
+  l = log
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   lm = log master..
   m = merge --ff-only
   nb = checkout -b
   p = push
+  pf = push -f
   pop = stash pop
-  r = rebase -i
+  r = rebase
+  ri = rebase -i
   rim = rebase -i master
   sf = show --name-only
   st = status
