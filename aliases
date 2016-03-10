@@ -2,6 +2,7 @@
 alias mkdir='mkdir -p'
 alias ls="ls -Gp"
 alias now='date -u "+%Y%m%d%H%M%S"'
+alias v="vagrant"
 
 # git
 alias gitsh="gitsh --git $(which hub)"
