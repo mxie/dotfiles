@@ -21,6 +21,7 @@
   cam = commit -v --amend
   ap = add -p
   b = branch
+  bd = branch -D
   br = browse
   cah = commit --amend -C HEAD
   cf = config
