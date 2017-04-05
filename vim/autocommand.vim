@@ -11,3 +11,7 @@ augroup END
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
+
+" Highlight trailing whitespace while not in insert mode
+autocmd InsertEnter * match Error /\s\+\%#\@<!$/
+autocmd InsertLeave * match Error /\s\+$/
