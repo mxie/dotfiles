@@ -31,6 +31,7 @@
   d = diff
   dc = diff --cached
   dm = diff master
+  ds = diff --stat
   l = log
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   lm = log master..
@@ -40,6 +41,7 @@
   pf = push -f
   pop = stash pop
   r = rebase
+  ra = rebase --abort
   ri = rebase -i
   rim = rebase -i master
   sf = show --name-only
