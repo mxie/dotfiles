@@ -33,13 +33,16 @@ noremap <Leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 noremap <Leader>c :TComment<CR>
 
 " turnoff highlight
-noremap <Leader>h :noh<CR>
+noremap <Leader>u :noh<CR>
+
+" open next item in quickfix
+noremap <Leader>n :cnext<CR>
 
 " format file and return to where I was before
 nnoremap <Leader>= mmgg=G`mzz
 
 " change hash syntax for current line
-noremap <Leader>s :s/:\(\w\+\)\s\+=>\s\+/\1: /g<CR>
+noremap <Leader>h :s/:\(\w\+\)\s*=>\s*/\1: /g<CR>
 
 " delete current file
 noremap <Leader>rm :call delete(expand('%'))<CR>
