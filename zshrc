@@ -78,3 +78,12 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # aliases `hub` to `git` for the shell
 eval "$(hub alias -s)"
+
+export GPG_TTY=$(tty)
+
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+  . "${HOME}/.gpg-agent-info"
+  export SSH_AGENT_PID
+  export GPG_AGENT_INFO
+  export SSH_AUTH_SOCK
+fi
