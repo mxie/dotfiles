@@ -56,6 +56,9 @@ noremap <Leader>r :redraw!<CR>
 " write to file without prehooks
 noremap <Leader>w :noautocmd w<CR>
 
+" write to file
+noremap <Leader>x :x<CR>
+
 " start a file search
 noremap <Leader>g :Ag!
 
