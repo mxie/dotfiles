@@ -6,6 +6,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'Keithbsmiley/tmux.vim'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-sort-motion'
