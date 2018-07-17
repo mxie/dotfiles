@@ -35,8 +35,14 @@ noremap <Leader>c :TComment<CR>
 " turnoff highlight
 noremap <Leader>u :noh<CR>
 
-" open next item in quickfix
+" close quickfix
+noremap <Leader>q :cclose<CR>
+
+" open next occurrence in quickfix
 noremap <Leader>n :cnext<CR>
+
+" open next file in quickfix
+noremap <Leader>f :cnfile<CR>
 
 " format file and return to where I was before
 nnoremap <Leader>= mmgg=G`mzz
