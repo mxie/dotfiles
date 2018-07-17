@@ -15,13 +15,11 @@ map <Leader>rq :VimuxCloseRunner<CR>
 " Interrupt any command running in the runner pane
 map <Leader>rs :VimuxInterruptRunner<CR>
 
-" turbux
-let g:turbux_runner = "vimux"
-let g:turbux_command_prefix = 'clear; bundle exec'
-let g:turbux_command_rspec  = 'rspec --color'
-" override default mappins
-let g:no_turbux_mappings = 1
+" vim-test
+
+" use vimux to send commands to a pane
+let test#strategy = "vimux"
 " run all tests in the spec
-map <Leader>a <Plug>SendTestToTmux
+map <Leader>a :TestFile<CR>
 " run this line in the spec
-map <Leader>l <Plug>SendFocusedTestToTmux
+map <Leader>l :TestNearest<CR>
