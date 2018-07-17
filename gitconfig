@@ -33,11 +33,13 @@
   dm = diff master
   ds = diff --stat
   l = log
+  lc = !sh -c 'git log -1 --format=format:%H' | pbcopy # copy last commit message
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   lm = log master..
   m = merge --ff-only
   nb = checkout -b
   p = push
+  pc = !git push && git lc
   pf = push -f
   pop = stash pop
   r = rebase
