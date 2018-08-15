@@ -2,7 +2,7 @@
 alias mkdir='mkdir -p'
 alias ls="ls -Gp"
 alias now='date -u "+%Y%m%d%H%M%S"'
-alias v="vagrant"
+alias gpg="gpg2"
 
 # git
 alias gitsh="gitsh --git $(which hub)"
@@ -16,13 +16,6 @@ alias gl="git log"
 alias gm="git merge"
 alias gp="git push"
 alias gr="git rebase"
-
-# postgres
-alias db-restore='pg_restore --verbose --clean --no-acl --no-owner -d'
-
-# heroku
-alias h=heroku
-alias db-copy-staging-to-local='h pgbackups:capture -r staging && curl `h pgbackups:url -r staging` | db-restore `db-development-name`'
 
 # bundler
 alias b="bundle"
@@ -40,16 +33,13 @@ alias rrg="bundle exec rake routes | ag"
 alias dr='diff_routes'
 alias rb="RAILS_ENV=test be rake db:rollback && be rake db:rollback"
 
-# heroku staging
-alias staging='heroku open staging'
-alias staging-console='heroku run console --remote staging'
-alias staging-process='watch heroku ps --remote staging'
-alias staging-releases='heroku releases --remote staging'
-alias staging-tail='heroku logs --tail --remote staging'
-
-alias p='powder'
+# homebrew
 alias upbrew='brew update && brew upgrade && brew cleanup'
 
 # tmux
 alias tn="tmux new-session -s"
 alias ta="tmux attach-session -t"
+#
+# other shortcuts
+alias v="vagrant"
+alias h="heroku"
