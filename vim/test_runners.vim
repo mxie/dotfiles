@@ -1,9 +1,10 @@
 " vimux
-let g:VimuxHeight = "27"
-let g:VimuxOrientation = "v"
-let VimuxResetSequence = "q; C-l"
+
+let g:VimuxHeight = "25"
+let g:VimuxOrientation = "h"
+
 " Prompt for a command to run
-map <Leader>rp :VimuxPromptCommand<CR>
+map <Leader>rp :VimuxPromptCommand(";")<CR>
 " Run last command executed by VimuxRunCommand
 map <Leader>rl :VimuxRunLastCommand<CR>
 " Inspect runner pane
