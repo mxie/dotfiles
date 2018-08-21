@@ -79,6 +79,15 @@ let g:html_indent_tags = 'li\|p'
 " https://github.com/vim-airline/vim-airline#smarter-tab-line
 let g:airline#extensions#tabline#enabled = 1
 
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'json': ['prettier'],
+\   'elixir': ['mix_format']
+\}
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:elm_format_autosave = 1
+
 " enable mouse mode
 if has('mouse')
   set mouse=a
