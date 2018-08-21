@@ -68,6 +68,9 @@ noremap <Leader>x :x<CR>
 " start a file search
 noremap <Leader>g :Ag!
 
+" insert surrounding tag for line
+nmap <Leader>t yss
+
 function! InsertTabWrapper()
   let col = col('.') - 1
   if !col || getline('.')[col - 1] !~ '\k'
