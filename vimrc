@@ -76,6 +76,9 @@ endif
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
+" https://github.com/vim-airline/vim-airline#smarter-tab-line
+let g:airline#extensions#tabline#enabled = 1
+
 " enable mouse mode
 if has('mouse')
   set mouse=a
