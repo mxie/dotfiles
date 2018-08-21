@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # borrowed from https://github.com/pbrisbin/dotfiles/blob/master/bin/sprunge
 #
