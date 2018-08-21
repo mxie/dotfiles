@@ -89,3 +89,6 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
 else
   eval $(gpg-agent --daemon)
 fi
+
+source /usr/local/opt/asdf/asdf.sh
+source /usr/local/etc/bash_completion.d/asdf.bash
