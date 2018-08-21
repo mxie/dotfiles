@@ -29,9 +29,9 @@ HISTFILE=~/.history
 # expand functions in the prompt
 setopt prompt_subst
 
-function kill_shit {
-  ps aux | grep $1 | grep -v grep | awk '{ FS=" +" }; { print $2 }' | xargs -I pid kill -9 pid
-}
+# automatically find the directory
+setopt auto_cd
+cdpath=($HOME/src $HOME/src/orgs)
 
 # set up to display branch name and status
 function parse_git_uncommitted {
