@@ -68,13 +68,8 @@ function precmd {
 
 # recommended by brew doctor
 export PATH="/usr/local/bin:$PATH"
-export PATH="$PATH:/usr/local/lib/node_modules"
 source $(brew --prefix nvm)/nvm.sh
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh --no-rehash)"
 export PATH="$HOME/.bin:$PATH"
-export PATH="$HOME/.cabal/.bin:$PATH"
-export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # aliases `hub` to `git` for the shell
 eval "$(hub alias -s)"
