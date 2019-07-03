@@ -10,6 +10,7 @@ set number
 
 " pull in other vim settings
 source ~/.vim/autocommand.vim
+source ~/.vim/linters.vim
 source ~/.vim/mapping.vim
 source ~/.vim/test_runners.vim
 source ~/.vim/vundle.vim
@@ -78,15 +79,6 @@ let g:html_indent_tags = 'li\|p'
 
 " https://github.com/vim-airline/vim-airline#smarter-tab-line
 let g:airline#extensions#tabline#enabled = 1
-
-let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\   'json': ['prettier'],
-\   'elixir': ['mix_format']
-\}
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:elm_format_autosave = 1
 
 " enable mouse mode
 if has('mouse')
