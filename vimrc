@@ -8,6 +8,8 @@ set showcmd
 set laststatus=2
 set number
 
+set rtp+=/usr/local/opt/fzf
+
 " pull in other vim settings
 source ~/.vim/autocommand.vim
 source ~/.vim/linters.vim

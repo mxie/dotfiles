@@ -66,7 +66,7 @@ noremap <Leader>w :noautocmd w<CR>
 noremap <Leader>x :x<CR>
 
 " start a file search
-noremap <Leader>g :Ag!
+noremap <Leader>g :Ag
 
 " insert surrounding tag for line
 nmap <Leader>t yss
@@ -79,3 +79,5 @@ function! InsertTabWrapper()
     return "\<c-p>"
   endif
 endfunction
+
+nnoremap <C-p> :Files<Cr>

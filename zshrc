@@ -87,3 +87,8 @@ fi
 
 source /usr/local/opt/asdf/asdf.sh
 source /usr/local/etc/bash_completion.d/asdf.bash
+# To install useful key bindings and fuzzy completion:
+# $(brew --prefix)/opt/fzf/install
+export HISTTIMEFORMAT="%F %T "
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
