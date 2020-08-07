@@ -86,3 +86,13 @@ let g:airline#extensions#tabline#enabled = 1
 if has('mouse')
   set mouse=a
 endif
+" https://github.com/golang/tools/blob/master/gopls/doc/vim.md
+" let g:go_def_mode='gopls'
+" let g:go_info_mode='gopls'
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_variable_assignments = 1

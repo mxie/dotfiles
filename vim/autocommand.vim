@@ -8,6 +8,8 @@ augroup syntaxHighlighting
 	autocmd BufRead,BufNewFile gitconfig set filetype=gitconfig
   autocmd BufRead,BufNewFile,BufReadPost *.json set syntax=json
 augroup end
+
+autocmd FileType go set noexpandtab
 autocmd BufWritePre * :%s/\s\+$//e
 
 " automatically rebalance windows on vim resize

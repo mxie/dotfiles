@@ -35,5 +35,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/ctags.vim'
 Plugin 'vim-scripts/tComment'
+Plugin 'fatih/vim-go'
 
 call vundle#end()

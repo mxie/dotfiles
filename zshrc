@@ -71,6 +71,8 @@ export PATH="/usr/local/bin:$PATH"
 source $(brew --prefix nvm)/nvm.sh
 export PATH="$HOME/.bin:$PATH"
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 # aliases `hub` to `git` for the shell
 eval "$(hub alias -s)"
 

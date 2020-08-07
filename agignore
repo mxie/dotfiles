@@ -2,3 +2,8 @@ log
 tags
 tmp
 node_modules
+vendor
+*pb.rb
+*pb.go
+*twirp.go
+*twirp.rb
