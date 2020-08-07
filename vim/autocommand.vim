@@ -1,14 +1,14 @@
-autocmd BufRead,BufNewFile gitconfig set filetype=gitconfig
-autocmd BufRead,BufNewFile Gemfile set filetype=ruby
-autocmd BufRead,BufNewFile Appraisals set filetype=ruby
-autocmd BufRead,BufNewFile .tmux.conf*,tmux.conf* set filetype=tmux
-autocmd BufRead,BufNewFile *.coffee* set filetype=coffee
+augroup syntaxHighlighting
+	autocmd!
+	autocmd BufRead,BufNewFile *.md,*.markdown setlocal filetype=ghmarkdown
+	autocmd BufRead,BufNewFile *.coffee* set filetype=coffee
+	autocmd BufRead,BufNewFile *.proto set filetype=proto
+	autocmd BufRead,BufNewFile .tmux.conf*,tmux.conf* set filetype=tmux
+	autocmd BufRead,BufNewFile Gemfile,Appraisals set filetype=ruby
+	autocmd BufRead,BufNewFile gitconfig set filetype=gitconfig
+  autocmd BufRead,BufNewFile,BufReadPost *.json set syntax=json
+augroup end
 autocmd BufWritePre * :%s/\s\+$//e
-au BufRead,BufNewFile,BufReadPost *.json set syntax=json
-augroup markdown
-  au!
-  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
