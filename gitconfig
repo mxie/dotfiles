@@ -55,6 +55,7 @@
   current-branch = !sh -c 'git rev-parse --abbrev-ref HEAD' -
   uncommit = reset HEAD^
   unfuck = !sh -c 'branch=$(git current-banch) && git reset --hard origin/$branch'
+  unfuck = !sh -c 'branch=$(git current-branch) && git reset --hard origin/$branch'
   unstage = reset HEAD
 
   con = !git add -A && git rebase --continue
