@@ -73,8 +73,6 @@ export PATH="$HOME/.bin:$PATH"
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-# aliases `hub` to `git` for the shell
-eval "$(hub alias -s)"
 
 export GPG_TTY=$(tty)
 

@@ -5,7 +5,6 @@ alias now='date -u "+%Y%m%d%H%M%S"'
 alias gpg="gpg2"
 
 # git
-alias gitsh="gitsh --git $(which hub)"
 alias g="git"
 alias gwork="git config --local user.email $WORK_EMAIL"
 alias gpers="git config --local user.email $PERSONAL_EMAIL"
