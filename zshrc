@@ -82,15 +82,6 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 
 export GPG_TTY=$(tty)
 
-if [ -f "${HOME}/.gpg-agent-info" ]; then
-  . "${HOME}/.gpg-agent-info"
-  export SSH_AGENT_PID
-  export GPG_AGENT_INFO
-  export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
-else
-  eval $(gpg-agent --daemon)
-fi
-
 if [ -e "${HOME}/.iterm2_shell_integration.zsh" ]; then
   source "${HOME}/.iterm2_shell_integration.zsh"
   export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
