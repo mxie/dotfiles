@@ -1,5 +1,5 @@
 let g:ale_fixers = {
-\   'javascript': ['eslint'],
+\   'javascript': ['prettier'],
 \   'json': ['prettier'],
 \   'elixir': ['mix_format'],
 \   'typescript': ['prettier', 'tslint', 'eslint']

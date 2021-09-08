@@ -35,6 +35,9 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/ctags.vim'
 Plugin 'vim-scripts/tComment'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'jparise/vim-graphql'
+Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'fatih/vim-go'
 
 call vundle#end()
