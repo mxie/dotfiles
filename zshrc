@@ -17,10 +17,19 @@ bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 
-# aliases
-if [ -e "$HOME/.aliases" ]; then
-  source "$HOME/.aliases"
+# explicitly source these dotfiles
+df=('aliases' 'fzf.zsh')
+for f in $df; do
+  if [ -e "$HOME/.$f" ]; then
+    source "$HOME/.$f"
+  fi
+done
+
+if [ -e "${HOME}/.iterm2_shell_integration.zsh" ]; then
+  source "${HOME}/.iterm2_shell_integration.zsh"
+  export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 fi
+
 
 HISTSIZE=4096
 SAVEHIST=4096
@@ -81,11 +90,6 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 export GPG_TTY=$(tty)
-
-if [ -e "${HOME}/.iterm2_shell_integration.zsh" ]; then
-  source "${HOME}/.iterm2_shell_integration.zsh"
-  export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
-fi
 
 export HISTTIMEFORMAT="%F %T "
 
