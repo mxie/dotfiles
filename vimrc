@@ -45,6 +45,9 @@ set splitright
 " colors
 set background=dark
 colorscheme molokai
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " set character limit to 80 per line
 set textwidth=80
@@ -86,6 +89,10 @@ let g:airline#extensions#tabline#enabled = 1
 if has('mouse')
   set mouse=a
 endif
+
+set redrawtime=10000
+set maxmempattern=10000
+
 " https://github.com/golang/tools/blob/master/gopls/doc/vim.md
 " let g:go_def_mode='gopls'
 " let g:go_info_mode='gopls'
