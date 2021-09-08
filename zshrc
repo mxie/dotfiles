@@ -31,7 +31,7 @@ setopt prompt_subst
 
 # automatically find the directory
 setopt auto_cd
-cdpath=($HOME/src $HOME/src/orgs)
+cdpath=($HOME/projects $HOME/external)
 
 # set up to display branch name and status
 function parse_git_uncommitted {
@@ -66,13 +66,19 @@ function precmd {
   rename_tmux_window_to_current_dir
 }
 
-# recommended by brew doctor
-export PATH="/usr/local/bin:$PATH"
-source $(brew --prefix nvm)/nvm.sh
+
+# for Homebrew executables
+export PATH="/usr/local/sbin:$PATH"
+
+# custom executables
 export PATH="$HOME/.bin:$PATH"
 
+# Go dev
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# VS Code
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 export GPG_TTY=$(tty)
 
@@ -85,10 +91,13 @@ else
   eval $(gpg-agent --daemon)
 fi
 
-source /usr/local/opt/asdf/asdf.sh
-source /usr/local/etc/bash_completion.d/asdf.bash
-# To install useful key bindings and fuzzy completion:
-# $(brew --prefix)/opt/fzf/install
+if [ -e "${HOME}/.iterm2_shell_integration.zsh" ]; then
+  source "${HOME}/.iterm2_shell_integration.zsh"
+  export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
+fi
+
 export HISTTIMEFORMAT="%F %T "
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+eval "$(rbenv init -)"
