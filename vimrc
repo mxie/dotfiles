@@ -70,20 +70,12 @@ highlight MatchParen ctermbg=74
 " command line abbreviations
 cabbr <expr> %% expand('%:p:h')
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
 " https://github.com/vim-airline/vim-airline#smarter-tab-line
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='molokai'
 
 " enable mouse mode
 if has('mouse')
@@ -94,8 +86,6 @@ set redrawtime=10000
 set maxmempattern=10000
 
 " https://github.com/golang/tools/blob/master/gopls/doc/vim.md
-" let g:go_def_mode='gopls'
-" let g:go_info_mode='gopls'
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_parameters = 1
