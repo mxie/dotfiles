@@ -54,7 +54,6 @@
   us = unstage
   current-branch = !sh -c 'git rev-parse --abbrev-ref HEAD' -
   uncommit = reset HEAD^
-  unfuck = !sh -c 'branch=$(git current-banch) && git reset --hard origin/$branch'
   unfuck = !sh -c 'branch=$(git current-branch) && git reset --hard origin/$branch'
   unstage = reset HEAD
 
@@ -73,9 +72,20 @@
 [help]
   autocorrect = 1
 
-
 [credential]
   helper = osxkeychain
 
 [gpg]
   program = /usr/local/bin/gpg2
+
+[github]
+  user = mxie
+
+[fetch]
+  prune = true
+
+[diff]
+  colorMoved = zebra
+
+[pull]
+  ff = only
