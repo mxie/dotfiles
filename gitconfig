@@ -52,7 +52,7 @@
   uc = uncommit
   uf = unfuck
   us = unstage
-  current-branch = !sh -c 'git rev-parse --abbrev-ref HEAD' -
+  current-branch = rev-parse --abbrev-ref HEAD
   uncommit = reset HEAD^
   unfuck = !sh -c 'branch=$(git current-branch) && git reset --hard origin/$branch'
   unstage = reset HEAD
