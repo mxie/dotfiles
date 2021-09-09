@@ -1,0 +1,5 @@
+#!/bin/sh
+
+script/install-dependencies
+script/link-dotfiles
+script/setup-vim

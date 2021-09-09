@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+echo ""
+echo "==========================================="
+echo "Setting up vim"
+echo ""
+
+vundle_plugin=~/.vim/bundle/Vundle.vim
+if [ ! -d $vundle_plugin ]; then
+  echo "Installing vundle"
+  git clone https://github.com/gmarik/Vundle.vim.git $vundle_plugin
+fi
+
+echo "Installing vim plugins"
+vim -u vim/vundle.vim +PluginInstall +qa

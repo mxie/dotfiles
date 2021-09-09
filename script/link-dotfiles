@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+echo ""
+echo "==========================================="
+echo "Setting up dotfiles"
+echo ""
+
+
+echo "Using RCM to symlink dotfiles"
+RCRC=rcrc rcup -v
