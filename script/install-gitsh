@@ -1,0 +1,5 @@
+#!/bin/sh
+
+curl -OL https://github.com/thoughtbot/gitsh/releases/download/v0.14/gitsh-0.14.tar.gz
+tar -zxvf gitsh-0.14.tar.gz
+cd gitsh-0.14 && make && make install

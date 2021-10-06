@@ -4,15 +4,24 @@ set -e
 
 echo ""
 echo "==========================================="
-echo "Setting up Homebrew"
-echo ""
+if [ "$(uname -s)" = "Linux" ]; then
+  deps="fzf silversearcher-ag rcm tmux zsh"
+  sudo apt-get install "$deps"
 
-echo "Installing Homebrew"
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
-  || echo "Homebrew already installed"
+  script/install-gitsh
+elif [ "$(uname -s)" = "Darwin" ]; then
+  echo ""
+  echo "==========================================="
+  echo "Setting up Homebrew"
+  echo ""
 
-echo "Installing brew bundle"
-brew tap Homebrew/bundle
+  echo "Installing Homebrew"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
+    || echo "Homebrew already installed"
 
-echo "Installing homebrew dependencies"
-brew bundle
+  echo "Installing brew bundle"
+  brew tap Homebrew/bundle
+
+  echo "Installing homebrew dependencies"
+  brew bundle
+fi
