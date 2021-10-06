@@ -1,1 +1,2 @@
+DOTFILES_DIRS="$HOME/dotfiles"
 EXCLUDES="script README.md Brewfile*"
