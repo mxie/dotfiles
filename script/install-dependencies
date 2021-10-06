@@ -6,7 +6,7 @@ echo ""
 echo "==========================================="
 if [ "$(uname -s)" = "Linux" ]; then
   deps="fzf silversearcher-ag rcm tmux zsh"
-  sudo apt-get install "$deps"
+  sudo apt-get install $deps
 
   script/install-gitsh
 elif [ "$(uname -s)" = "Darwin" ]; then
