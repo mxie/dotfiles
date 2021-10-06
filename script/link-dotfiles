@@ -9,4 +9,8 @@ echo ""
 
 
 echo "Using RCM to symlink dotfiles"
-RCRC=rcrc rcup -v
+if [ "$CODESPACES" = true ];
+  RCRC=rcrc rcup -v -d /workspaces/.codespaces/.persistedshare/dotfiles
+else
+  RCRC=rcrc rcup -v
+fi
