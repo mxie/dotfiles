@@ -1,1 +1,1 @@
-EXCLUDES="script README.md Brewfile*"
+EXCLUDES="script README.md Brewfile* rcrc"
