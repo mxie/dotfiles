@@ -1,0 +1,30 @@
+#!/usr/bin/env zsh
+
+# set up to display branch name and status
+function parse_git_uncommitted {
+  [[ -d .git && $(command git status 2> /dev/null) =~ "Changes|Untracked" ]] && echo "✗"
+}
+function parse_git_branch() {
+  ref=$(command git symbolic-ref HEAD 2> /dev/null)
+  if [[ -n $ref ]]; then
+    echo "${ref#refs/heads/} "
+  fi
+}
+function parse_git_unpushed {
+  unpushed_commits=$(command git cherry -v origin/$(parse_git_branch) 2> /dev/null)
+  [[ -d .git && -n $unpushed_commits ]] && echo "*"
+}
+
+# auto-rename tmux window - thanks teo!
+rename_tmux_window_to_current_dir() {
+  if [ ! -z "$TMUX" ]; then
+    if [ "$PWD" != "$LPWD" ]; then
+      LPWD="$PWD"
+      tmux rename-window $(print -Pn "%c")
+    fi
+  fi
+}
+
+function precmd {
+  rename_tmux_window_to_current_dir
+}
