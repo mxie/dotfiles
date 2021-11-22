@@ -24,6 +24,16 @@ for f in $df; do
   fi
 done
 
+if [ -e "${HOME}/.iterm2_shell_integration.zsh" ]; then
+  source "${HOME}/.iterm2_shell_integration.zsh"
+  export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
+fi
+
+if which brew > /dev/null; then
+  source $(brew --prefix asdf)/asdf.sh
+  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+fi
+
 HISTSIZE=4096
 SAVEHIST=4096
 HISTFILE=~/.history
@@ -55,6 +65,6 @@ export GPG_TTY=$(tty)
 
 export HISTTIMEFORMAT="%F %T "
 
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-
-eval "$(rbenv init -)"
+if which rbenv > /dev/null; then
+  eval "$(rbenv init -)"
+fi
