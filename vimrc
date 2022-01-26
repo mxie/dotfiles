@@ -15,6 +15,7 @@ source ~/.vim/autocommand.vim
 source ~/.vim/linters.vim
 source ~/.vim/mapping.vim
 source ~/.vim/test_runners.vim
+source ~/.vim/projections.vim
 source ~/.vim/vundle.vim
 
 " syntax
