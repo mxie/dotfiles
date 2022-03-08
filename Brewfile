@@ -1,3 +1,4 @@
+tap 'homebrew/cask'
 tap 'thoughtbot/formulae'
 
 brew 'asdf'
@@ -12,3 +13,7 @@ brew 'gitsh'
 brew 'rcm'
 brew 'tmux'
 brew 'zsh'
+
+cask 'google-chrome'
+cask 'insomnia'
+cask 'spotify'
