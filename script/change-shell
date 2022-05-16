@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # Run by github/github codespaces after starting
-chsh -s "$(command -v zsh)" $USER
+sudo chsh -s "$(command -v zsh)" $USER
