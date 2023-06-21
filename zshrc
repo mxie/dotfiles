@@ -30,7 +30,7 @@ if [ -e "${HOME}/.iterm2_shell_integration.zsh" ]; then
 fi
 
 if which brew > /dev/null; then
-  source $(brew --prefix asdf)/asdf.sh
+  source $(brew --prefix asdf)/libexec/asdf.sh
   export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 fi
 
